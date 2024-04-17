@@ -21,6 +21,18 @@ public class DictController {
     private DictService dictService;
 
     /**
+     * 根据dictCode获取下级节点
+     * @param dictCode
+     * @return
+     */
+    @ApiOperation(value = "根据dictCode获取下级节点")
+    @GetMapping("findByDictCode/{dictCode}")
+    public Result findByDictCode(@PathVariable String dictCode) {
+        List<Dict> list = dictService.findByDictCode(dictCode);
+        return Result.ok(list);
+    }
+
+    /**
      * 根据dictCode和value查询
      * @param dictCode
      * @param value
